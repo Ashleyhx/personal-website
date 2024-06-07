@@ -1,4 +1,4 @@
-"use client"; // Add this line to mark the component as a client component
+"use client";
 
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
@@ -7,14 +7,7 @@ const WebGLCanvas = () => {
     const canvasRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        console.log('useEffect called');
-
-        if (!canvasRef.current) {
-            console.log('canvasRef.current is null');
-            return;
-        }
-
-        console.log('Setting up the scene');
+        if (!canvasRef.current) return;
 
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0x2a3b4c);
@@ -42,7 +35,16 @@ const WebGLCanvas = () => {
 
         animate();
 
+        const handleResize = () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        };
+
+        window.addEventListener('resize', handleResize);
+
         return () => {
+            window.removeEventListener('resize', handleResize);
             if (canvasRef.current) {
                 if ("removeChild" in canvasRef.current) {
                     canvasRef.current.removeChild(renderer.domElement);
@@ -51,10 +53,12 @@ const WebGLCanvas = () => {
         };
     }, []);
 
-    return <div ref={canvasRef} style={{ width: '100%', height: '100vh' }} />;
+    return <div ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100vh', zIndex: -1 }} />;
 };
 
 export default WebGLCanvas;
+
+
 
 
 

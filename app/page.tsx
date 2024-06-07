@@ -6,15 +6,18 @@ const WebGLCanvas = dynamic(() => import('./components/WebGLCanvas'), { ssr: fal
 
 const Home = () => {
     return (
-        <div>
-            <h1>Welcome to My Personal Website</h1>
-            <p>This is the introduction.</p>
+        <div style={{ position: 'relative', height: '100vh', width: '100%' }}>
             <Suspense fallback={<div>Loading...</div>}>
                 <WebGLCanvas />
             </Suspense>
-            <p> AAAA </p>
+            <div style={{ position: 'relative', zIndex: 1, color: 'white', textAlign: 'center', top: '50%', transform: 'translateY(-50%)' }}>
+                <h1>Welcome to Ashley's Website</h1>
+                <p>This is the introduction.</p>
+            </div>
         </div>
     );
 };
 
 export default Home;
+
+
