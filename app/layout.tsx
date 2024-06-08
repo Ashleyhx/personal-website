@@ -18,8 +18,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
+            {/*<head>*/}
+            {/*    <link rel="stylesheet" href="globals.css"/>*/}
+            {/*    <title></title>*/}
+            {/*</head>*/}
         <body className={inter.className}>
-        <Navbar />
+        <Navbar/>
         {children}
         </body>
         </html>

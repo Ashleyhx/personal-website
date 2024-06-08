@@ -1,10 +1,5 @@
-const Blog = () => {
-    return (
-        <div>
-            <h1>Blog</h1>
-            <p>Welcome to my blog. Here are some posts.</p>
-        </div>
-    );
-};
+const BlogPage = () => {
+  return <div>Blog Page</div>;
+}
 
-export default Blog;
+export default BlogPage;

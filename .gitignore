@@ -8,8 +8,8 @@
 /coverage
 
 # next.js (remove these lines)
-# /.next/
-# /out/
+ /.next/
+ /out/
 
 # production
 /build

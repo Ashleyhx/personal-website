@@ -4,6 +4,7 @@
  */
 const nextConfig = {
     output: 'export',
+    // basePath: '/personal-website',
     // assetPrefix: './', // Ensures assets are correctly referenced
     images: {
         unoptimized: true,
