@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
+
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import Footer from './components/Footer';
 
 // Dynamically import the WebGLCanvas component to avoid server-side rendering issues
 const WebGLCanvas = dynamic(() => import('./components/WebGLCanvas'), { ssr: false });
@@ -26,7 +26,7 @@ const Home = () => {
                 top: '50%',
                 transform: 'translateY(-50%)'
             }}>
-                <h1>Welcome to Ashley's website</h1>
+                <h1>Welcome to Ashley&apos;s website</h1>
                 <div className="intro-details">
                     <p>I am Ashley, a 4th year Computer Science student at the University of Waterloo.</p>
                     <p>Specializing in <span className="skills">Backend, Frontend, Database, Graphics</span>.</p>
@@ -34,25 +34,26 @@ const Home = () => {
 
                 <div className="flex justify-center text-white mt-10">
                     <a href={about.githubUrl} className="icon-link">
-                        <FaGithub size={30} className="mr-4" />
+                        <FaGithub size={30} className="mr-4"/>
                     </a>
                     <a href={about.linkedinUrl} className="icon-link">
-                        <FaLinkedin size={30} className="mr-4" />
+                        <FaLinkedin size={30} className="mr-4"/>
                     </a>
                     <a href={about.email} className="icon-link">
-                        <FaEnvelope size={30} />
+                        <FaEnvelope size={30}/>
                     </a>
                 </div>
+
+                {/*<footer*/}
+                {/*    style={{position: 'absolute', bottom: '10px', width: '100%', textAlign: 'center', color: 'white'}}>*/}
+                {/*    <span className="text-sm text-center text-neutral-600">*/}
+                {/*      © 2024 - Created by <a href={about.githubUrl} style={{color: 'white'}}>Ashleyhx</a>*/}
+                {/*    </span>*/}
+                {/*</footer>*/}
             </div>
-            {/*<footer className="footer">*/}
-            {/*    <span className="text-sm text-center text-neutral-600">*/}
-            {/*        © 2024 - Created by <a href={about.githubUrl}>Ashleyhx</a>*/}
-            {/*    </span>*/}
-            {/*</footer>*/}
         </div>
     );
 };
 
 export default Home;
-
 

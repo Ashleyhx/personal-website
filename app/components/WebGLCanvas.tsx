@@ -9,16 +9,17 @@ const WebGLCanvas = () => {
     useEffect(() => {
         if (!canvasRef.current) return;
 
+        const currentCanvasRef = canvasRef.current;  // Copy the value to a variable
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x3e3c6b);
+        scene.background = new THREE.Color(0x4A426D);
 
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         camera.position.z = 5;
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        if ("appendChild" in canvasRef.current) {
-            canvasRef.current.appendChild(renderer.domElement);
+        if ("appendChild" in currentCanvasRef) {
+            currentCanvasRef.appendChild(renderer.domElement);
         }
 
         const geometry = new THREE.BoxGeometry(3.5, 3.5, 3.5);
@@ -64,10 +65,8 @@ const WebGLCanvas = () => {
 
         return () => {
             window.removeEventListener('resize', handleResize);
-            if (canvasRef.current) {
-                if ("removeChild" in canvasRef.current) {
-                    canvasRef.current.removeChild(renderer.domElement);
-                }
+            if ("removeChild" in currentCanvasRef) {
+                currentCanvasRef.removeChild(renderer.domElement);
             }
         };
     }, []);
