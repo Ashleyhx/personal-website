@@ -10,7 +10,7 @@ const WebGLCanvas = () => {
         if (!canvasRef.current) return;
 
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x4A426D);
+        scene.background = new THREE.Color(0x3e3c6b);
 
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         camera.position.z = 5;
@@ -31,24 +31,14 @@ const WebGLCanvas = () => {
         const octahedronMaterial = new THREE.MeshStandardMaterial(
             { color: 0xbdf6ff, metalness: 0.8, roughness: 0.5, wireframe: true, wireframeLinewidth: 4});
         const octahedron = new THREE.Mesh(octahedronGeometry, octahedronMaterial);
-        // octahedron.position.set(0, 0, 5);
         scene.add(octahedron);
-
-        // const geometry2 = new THREE.TorusGeometry(3, 0.4, 100, 16);
-        // const material2 = new THREE.MeshStandardMaterial(
-        //     { color: 0xffc0cb, metalness: 0.8, roughness: 0.5});
-        // const torusKnot = new THREE.Mesh(geometry2, material2);
-        // torusKnot.position.set(0, 0, -5);
-        // scene.add(torusKnot);
-
-
 
         // Adjust light to come from the top left
         const light = new THREE.DirectionalLight(0xffffff, 1);
         light.position.set(-1, 1, 1);  // Top left position
         scene.add(light);
 
-        // // Top right position light
+        // Top right position light
         const light2 = new THREE.DirectionalLight(0xffffff, 1);
         light2.position.set(1, 1, 1);
         scene.add(light2);
