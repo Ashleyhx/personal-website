@@ -23,13 +23,13 @@ const WebGLCanvas = () => {
 
         const geometry = new THREE.BoxGeometry(3.5, 3.5, 3.5);
         const material = new THREE.MeshStandardMaterial(
-            { color: 0xecafda, metalness: 0.8, roughness: 0.5, wireframe: true, wireframeLinewidth: 8});
+            { color: 0xecafda, wireframe: true, wireframeLinewidth: 1});
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
 
         const octahedronGeometry = new THREE.OctahedronGeometry(2, 1);
         const octahedronMaterial = new THREE.MeshStandardMaterial(
-            { color: 0xbdf6ff, metalness: 0.8, roughness: 0.5, wireframe: true, wireframeLinewidth: 4});
+            { color: 0xbdf6ff, wireframe: true, wireframeLinewidth: 1});
         const octahedron = new THREE.Mesh(octahedronGeometry, octahedronMaterial);
         scene.add(octahedron);
 
@@ -37,8 +37,8 @@ const WebGLCanvas = () => {
         const light = new THREE.DirectionalLight(0xffffff, 1);
         light.position.set(-1, 1, 1);  // Top left position
         scene.add(light);
-
-        // Top right position light
+        //
+        // // Top right position light
         const light2 = new THREE.DirectionalLight(0xffffff, 1);
         light2.position.set(1, 1, 1);
         scene.add(light2);
@@ -76,9 +76,4 @@ const WebGLCanvas = () => {
 };
 
 export default WebGLCanvas;
-
-
-
-
-
 

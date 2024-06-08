@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import Footer from './components/Footer';
 
 // Dynamically import the WebGLCanvas component to avoid server-side rendering issues
 const WebGLCanvas = dynamic(() => import('./components/WebGLCanvas'), { ssr: false });
@@ -43,17 +44,15 @@ const Home = () => {
                     </a>
                 </div>
             </div>
-            <div className="footer px-8 py-16 flex justify-center align-center flex-col bg-neutral-800">
-                <span className="text-sm text-center text-neutral-600">
-                    © 2024 - Created by <a href={about.githubUrl} style={{color: 'white'}}>Ashleyhx</a>
-                </span>
-            </div>
+            {/*<footer className="footer">*/}
+            {/*    <span className="text-sm text-center text-neutral-600">*/}
+            {/*        © 2024 - Created by <a href={about.githubUrl}>Ashleyhx</a>*/}
+            {/*    </span>*/}
+            {/*</footer>*/}
         </div>
     );
 };
 
 export default Home;
-
-
 
 
