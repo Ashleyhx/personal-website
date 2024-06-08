@@ -11,8 +11,11 @@ const Home = () => {
                 <WebGLCanvas />
             </Suspense>
             <div style={{ position: 'relative', zIndex: 1, color: 'white', textAlign: 'center', top: '50%', transform: 'translateY(-50%)' }}>
-                <h1>Welcome to Ashley's Website</h1>
-                <p>This is the introduction.</p>
+                <h1>Welcome to Ashley's website</h1>
+                <div class="intro-details">
+                    <p>I am Ashley, a 4th year Computer Science student at the University of Waterloo.</p>
+                    <p>Specializing in <span class="skills">Backend, Frontend, Database, Graphics</span>.</p>
+                </div>
             </div>
         </div>
     );
